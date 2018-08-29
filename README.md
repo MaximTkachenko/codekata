@@ -9,6 +9,7 @@ Inspired by http://codekata.com/
 - [ ] graphs
   - [x] depth-first search 
   - [x] breadth-first search 
+  - [ ] Dijkstra's algorithm
 - [ ] stack
 - [ ] queue
 - [ ] vectorr / list of arrays

@@ -92,5 +92,7 @@ namespace Core.Tests
             graph.Vertexes.Count.Should().Be(7);
             graph.GetVertexes().Count().Should().Be(7);
         }
+
+        //todo add tests for fluent api with directions + for string structure with directions + tests for directed
     }
 }

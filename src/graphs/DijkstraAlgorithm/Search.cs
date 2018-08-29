@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Core;
 using Core.Interfaces;
 
-namespace BreadthFirstSearch
+namespace DijkstraAlgorithm
 {
     public sealed class Search : ISearch
     {
-        private readonly IAdjacencyMatrix _graph;
-        private readonly Dictionary<string, string> _prev = new Dictionary<string, string>();
         private readonly HashSet<string> _visited = new HashSet<string>();
+        private readonly Dictionary<string, int> _costs = new Dictionary<string, int>();
+        private readonly Dictionary<string, string> _prev = new Dictionary<string, string>();
+        private readonly IAdjacencyMatrix _graph;
 
         public Search(IAdjacencyMatrix graph)
         {
@@ -23,8 +26,9 @@ namespace BreadthFirstSearch
             }
 
             var start = _graph.GetVertex(from);
-            BfsSeacrh(start);
+            DijkstrasSeacrh(start);
 
+            //move to separate class, like path or smth like this
             if (!_prev.TryGetValue(to, out var current))
             {
                 return Enumerable.Empty<string>();
@@ -40,30 +44,36 @@ namespace BreadthFirstSearch
 
             path.Reverse();
             return path;
+
         }
 
-        private void BfsSeacrh(IVertex start)
+        private void DijkstrasSeacrh(IVertex start)
         {
+            _visited.Add(start.Name);
+            _costs.Add(start.Name, 0);
+
             var queue = new Queue<IVertex>();
             queue.Enqueue(start);
             while (queue.Count > 0)
             {
                 var current = queue.Dequeue();
-                var edges = current.GetEdges().ToArray();
-                _visited.Add(current.Name);
-                if (edges.Length == 0)
+                foreach (var edge in current.GetEdges().OrderBy(x => x.Weight))
                 {
-                    continue;
+                    if (_visited.Contains(edge.Vertex2.Name))
+                    {
+                        continue;
+                    }
+
+                    if (!_costs.TryGetValue(edge.Vertex2.Name, out var cost) || cost > edge.Weight + _costs[current.Name])
+                    {
+                        _costs[edge.Vertex2.Name] = edge.Weight + _costs[current.Name];
+                        _prev[edge.Vertex2.Name] = current.Name;
+                    }
+
+                    queue.Enqueue(edge.Vertex2);
                 }
 
-                foreach (var edge in edges)
-                {
-                    if (!_visited.Contains(edge.Vertex2.Name))
-                    {
-                        queue.Enqueue(edge.Vertex2);
-                        _prev.Add(edge.Vertex2.Name, current.Name);
-                    }
-                }
+                _visited.Add(current.Name);
             }
         }
     }

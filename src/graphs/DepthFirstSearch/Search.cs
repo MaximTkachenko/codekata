@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
+using Core.Interfaces;
 
 namespace DepthFirstSearch
 {
-    public sealed class Search
+    public sealed class Search : ISearch
     {
         private readonly IAdjacencyMatrix _graph;
         private readonly Dictionary<string, string> _prev = new Dictionary<string, string>();
@@ -15,7 +16,7 @@ namespace DepthFirstSearch
             _graph = graph;
         }
 
-        public IEnumerable<string> Start(string from, string to)
+        public IEnumerable<string> Find(string from, string to)
         {
             if (from == to)
             {

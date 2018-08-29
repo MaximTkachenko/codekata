@@ -7,7 +7,7 @@ namespace BreadthFirstSearch.Tests
     public class SearchTests
     {
         [Fact]
-        public void Start_ValidInput_ShouldFindPath()
+        public void Find_ValidInput_ShouldFindPath()
         {
             var graph = AdjacencyMatrixFactory.Create();
             graph.AddVertex("a")
@@ -22,13 +22,13 @@ namespace BreadthFirstSearch.Tests
                 .AddEdge("g");
 
             var search = new Search(graph);
-            var result = string.Join("", search.Start("a", "e"));
+            var result = string.Join("", search.Find("a", "e"));
 
             (result == "ace" || result == "agfce").Should().BeTrue();
         }
 
         [Fact]
-        public void Start_FromVertexDisonnectedFromToVertex_EmptyPath()
+        public void Find_FromVertexDisonnectedFromToVertex_EmptyPath()
         {
             var graph = AdjacencyMatrixFactory.Create();
             graph.AddVertex("a")
@@ -48,7 +48,7 @@ namespace BreadthFirstSearch.Tests
                 .AddEdge("o");
 
             var search = new Search(graph);
-            var result = string.Join("", search.Start("a", "n"));
+            var result = string.Join("", search.Find("a", "n"));
 
             result.Should().Be("");
         }

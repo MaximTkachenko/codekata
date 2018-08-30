@@ -1,4 +1,4 @@
-# codekata-dotnet
+# codekata
 
 Inspired by http://codekata.com/
 

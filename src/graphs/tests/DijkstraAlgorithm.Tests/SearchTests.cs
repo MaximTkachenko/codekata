@@ -23,7 +23,7 @@ namespace DijkstraAlgorithm.Tests
                 .AddEdge("e", 9);
 
             var search = new Search(graph);
-            var result = string.Join("", search.Find("a", "e"));
+            var result = string.Join("", search.BuildPath("a").GetPath("e"));
 
             result.Should().Be("abcde");
         }

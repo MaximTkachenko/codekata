@@ -23,7 +23,7 @@ namespace Core
 
         public string Name { get; }
 
-        public IVertex AddEdge(string endVertexName, short weight = 0)
+        public IVertex AddEdge(string endVertexName, int weight = 0)
         {
             if (endVertexName == Name)
             {

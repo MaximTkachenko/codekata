@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Core;
 using Core.Interfaces;
@@ -10,41 +9,21 @@ namespace DijkstraAlgorithm
     {
         private readonly HashSet<string> _visited = new HashSet<string>();
         private readonly Dictionary<string, int> _costs = new Dictionary<string, int>();
-        private readonly Dictionary<string, string> _prev = new Dictionary<string, string>();
         private readonly IAdjacencyMatrix _graph;
+        private Path _path;
 
         public Search(IAdjacencyMatrix graph)
         {
             _graph = graph;
         }
 
-        public IEnumerable<string> Find(string from, string to)
+        public Path BuildPath(string from)
         {
-            if (from == to)
-            {
-                return Enumerable.Empty<string>();
-            }
-
+            _path = new Path(from);
             var start = _graph.GetVertex(from);
             DijkstrasSeacrh(start);
 
-            //move to separate class, like path or smth like this
-            if (!_prev.TryGetValue(to, out var current))
-            {
-                return Enumerable.Empty<string>();
-            }
-
-            var path = new List<string> { to };
-            while (current != from)
-            {
-                path.Add(current);
-                current = _prev[current];
-            }
-            path.Add(from);
-
-            path.Reverse();
-            return path;
-
+            return _path;
         }
 
         private void DijkstrasSeacrh(IVertex start)
@@ -67,7 +46,7 @@ namespace DijkstraAlgorithm
                     if (!_costs.TryGetValue(edge.Vertex2.Name, out var cost) || cost > edge.Weight + _costs[current.Name])
                     {
                         _costs[edge.Vertex2.Name] = edge.Weight + _costs[current.Name];
-                        _prev[edge.Vertex2.Name] = current.Name;
+                        _path.Set(edge.Vertex2.Name, current.Name);
                     }
 
                     queue.Enqueue(edge.Vertex2);

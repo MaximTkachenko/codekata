@@ -2,9 +2,8 @@
 {
     public interface IEdge
     {
-        short Weight { get; }
+        int Weight { get; }
         IVertex Vertex1 { get; }
         IVertex Vertex2 { get; }
-        IEdge Next { get; }
     }
 }

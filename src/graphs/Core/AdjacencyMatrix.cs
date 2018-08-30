@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Core.Interfaces;
 
 namespace Core
 {
     internal sealed class AdjacencyMatrix : IAdjacencyMatrix
     {
+        private static readonly Regex WeightRegex = new Regex(@"^\[([0-9]{1,3})\]", RegexOptions.Compiled);
+
         internal readonly Dictionary<string, Vertex> Vertexes;
 
         public AdjacencyMatrix(bool isDirected)
@@ -30,8 +33,6 @@ namespace Core
                 throw new ArgumentException(nameof(structure));
             }
 
-            //todo parse weights
-
             var vertexItems = structure.Split(new []{ ',' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var vi in vertexItems)
             {
@@ -45,7 +46,10 @@ namespace Core
 
                 for (int i = 1; i < verteces.Length; i++)
                 {
-                    vertex.AddEdge(verteces[i]);
+                    var match = WeightRegex.Match(verteces[i]);
+                    var name = match.Success ? verteces[i].Substring(match.Length) : verteces[i];
+                    var weight = match.Success ? int.Parse(match.Groups[1].Value) : 0;
+                    vertex.AddEdge(name, weight);
                 }
             }
         }

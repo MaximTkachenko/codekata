@@ -22,7 +22,7 @@ namespace BreadthFirstSearch.Tests
                 .AddEdge("g");
 
             var search = new Search(graph);
-            var result = string.Join("", search.Find("a", "e"));
+            var result = string.Join("", search.BuildPath("a").GetPath("e"));
 
             (result == "ace" || result == "agfce").Should().BeTrue();
         }
@@ -48,7 +48,7 @@ namespace BreadthFirstSearch.Tests
                 .AddEdge("o");
 
             var search = new Search(graph);
-            var result = string.Join("", search.Find("a", "n"));
+            var result = string.Join("", search.BuildPath("a").GetPath("n"));
 
             result.Should().Be("");
         }

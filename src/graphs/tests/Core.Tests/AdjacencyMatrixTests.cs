@@ -7,7 +7,7 @@ namespace Core.Tests
     public class AdjacencyMatrixTests
     {
         [Fact]
-        public void AdjacencyMatrix_Init_Empty()
+        public void AdjacencyMatrix_InitDirectedGraph_Empty()
         {
             var graph = new AdjacencyMatrix(true);
 
@@ -15,7 +15,7 @@ namespace Core.Tests
         }
 
         [Fact]
-        public void AdjacencyMatrix_AddVertex_VertexAvailable()
+        public void AdjacencyMatrix_AddVertexToDirected_VertexAvailable()
         {
             var graph = new AdjacencyMatrix(true);
 
@@ -27,7 +27,7 @@ namespace Core.Tests
         }
 
         [Fact]
-        public void AdjacencyMatrix_AddVertexAndEdges_DataConsistent()
+        public void AdjacencyMatrix_AddVertexAndEdgesToDirectedGraph_DataConsistent()
         {
             var graph = new AdjacencyMatrix(true);
 
@@ -42,11 +42,10 @@ namespace Core.Tests
             edges.Length.Should().Be(2);
             edges[0].Vertex1.Name.Should().Be("a");
             edges[0].Vertex2.Name.Should().Be("b");
-            edges[0].Weight.Should().Be(1);
-            edges[0].Next.Vertex1.Name.Should().Be("a");
-            edges[0].Next.Vertex2.Name.Should().Be("c");
-            edges[0].Next.Weight.Should().Be(1);
-            edges[0].Next.Next.Should().BeNull();
+            edges[0].Weight.Should().Be(0);
+            edges[1].Vertex1.Name.Should().Be("a");
+            edges[1].Vertex2.Name.Should().Be("c");
+            edges[1].Weight.Should().Be(0);
 
             graph.Vertexes.Count.Should().Be(4);
             graph.Vertexes["a"].GetEdges().Count.Should().Be(2);
@@ -55,42 +54,61 @@ namespace Core.Tests
         }
 
         [Fact]
-        public void AdjacencyMatrix_FromString_DataConsistent()
+        public void AdjacencyMatrix_DirectedGraphFromString_DataConsistent()
         {
             var graph = new AdjacencyMatrix("a-b-c-g,c-d-e-f,f-g", true);
+
+            graph.Vertexes.Count.Should().Be(7);
+            graph.GetVertexes().Count().Should().Be(7);
 
             var vertex = graph.GetVertex("a");
             vertex.Name.Should().Be("a");
             var edges = vertex.GetEdges().ToArray();
             edges.Length.Should().Be(3);
             edges[0].Vertex2.Name.Should().Be("b");
-            edges[0].Next.Vertex2.Name.Should().Be("c");
             edges[1].Vertex2.Name.Should().Be("c");
-            edges[1].Next.Vertex2.Name.Should().Be("g");
             edges[2].Vertex2.Name.Should().Be("g");
-            edges[2].Next.Should().BeNull();
 
             vertex = graph.GetVertex("c");
             vertex.Name.Should().Be("c");
             edges = vertex.GetEdges().ToArray();
             edges.Length.Should().Be(3);
             edges[0].Vertex2.Name.Should().Be("d");
-            edges[0].Next.Vertex2.Name.Should().Be("e");
             edges[1].Vertex2.Name.Should().Be("e");
-            edges[1].Next.Vertex2.Name.Should().Be("f");
             edges[2].Vertex2.Name.Should().Be("f");
-            edges[2].Next.Should().BeNull();
 
             vertex = graph.GetVertex("f");
             vertex.Name.Should().Be("f");
             edges = vertex.GetEdges().ToArray();
             edges.Length.Should().Be(1);
             edges[0].Vertex2.Name.Should().Be("g");
-            edges[0].Next.Should().BeNull();
+        }
 
-            //todo check edges
-            graph.Vertexes.Count.Should().Be(7);
-            graph.GetVertexes().Count().Should().Be(7);
+        [Fact]
+        public void AdjacencyMatrix_DirectedGraphFromStringWithWeights_DataConsistent()
+        {
+            var graph = new AdjacencyMatrix("a-[2]b-[3]c,c-[4]d-[55]e", true);
+
+            graph.Vertexes.Count.Should().Be(5);
+            graph.GetVertexes().Count.Should().Be(5);
+
+            var vertex = graph.GetVertex("a");
+            vertex.Name.Should().Be("a");
+            var edges = vertex.GetEdges();
+            edges.Count.Should().Be(2);
+            edges[0].Vertex2.Name.Should().Be("b");
+            edges[0].Weight.Should().Be(2);
+            edges[1].Vertex2.Name.Should().Be("c");
+            edges[1].Weight.Should().Be(3);
+
+            vertex = graph.GetVertex("c");
+            vertex.Name.Should().Be("c");
+            edges = vertex.GetEdges();
+            edges.Count.Should().Be(2);
+            edges[0].Vertex2.Name.Should().Be("d");
+            edges[0].Weight.Should().Be(4);
+            edges[1].Vertex2.Name.Should().Be("e");
+            edges[1].Weight.Should().Be(55);
         }
 
         //todo add tests for fluent api with directions + for string structure with weights + tests for directed

@@ -4,8 +4,12 @@ namespace Core
 {
     public static class AdjacencyMatrixFactory
     {
-        public static IAdjacencyMatrix Create() => new AdjacencyMatrix();
+        public static IAdjacencyMatrix CreateDirected() => new AdjacencyMatrix(true);
 
-        public static IAdjacencyMatrix CreateFromStructure(string structure) => new AdjacencyMatrix(structure);
+        public static IAdjacencyMatrix CreateDirectedFromStructure(string structure) => new AdjacencyMatrix(structure, true);
+
+        public static IAdjacencyMatrix CreateUndirected() => new AdjacencyMatrix(false);
+
+        public static IAdjacencyMatrix CreateUndirectedFromStructure(string structure) => new AdjacencyMatrix(structure, false);
     }
 }

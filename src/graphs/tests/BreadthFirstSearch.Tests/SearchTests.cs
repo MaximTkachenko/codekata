@@ -9,7 +9,7 @@ namespace BreadthFirstSearch.Tests
         [Fact]
         public void Find_ValidInput_ShouldFindPath()
         {
-            var graph = AdjacencyMatrixFactory.Create();
+            var graph = AdjacencyMatrixFactory.CreateDirected();
             graph.AddVertex("a")
                 .AddEdge("b")
                 .AddEdge("c")
@@ -30,7 +30,7 @@ namespace BreadthFirstSearch.Tests
         [Fact]
         public void Find_FromVertexDisonnectedFromToVertex_EmptyPath()
         {
-            var graph = AdjacencyMatrixFactory.Create();
+            var graph = AdjacencyMatrixFactory.CreateDirected();
             graph.AddVertex("a")
                 .AddEdge("b")
                 .AddEdge("c")

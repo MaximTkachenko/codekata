@@ -9,28 +9,27 @@ namespace Core.Tests
         [Fact]
         public void AdjacencyMatrix_Init_Empty()
         {
-            var graph = new AdjacencyMatrix();
+            var graph = new AdjacencyMatrix(true);
 
-            graph.Edges.Count.Should().Be(0);
             graph.Vertexes.Count.Should().Be(0);
         }
 
         [Fact]
         public void AdjacencyMatrix_AddVertex_VertexAvailable()
         {
-            var graph = new AdjacencyMatrix();
+            var graph = new AdjacencyMatrix(true);
 
             graph.AddVertex("a");
 
-            graph.Edges.Count.Should().Be(0);
             graph.Vertexes.Count.Should().Be(1);
-            graph.GetVertexes().Count().Should().Be(1);
+            graph.Vertexes["a"].GetEdges().Count.Should().Be(0);
+            graph.GetVertexes().Count.Should().Be(1);
         }
 
         [Fact]
         public void AdjacencyMatrix_AddVertexAndEdges_DataConsistent()
         {
-            var graph = new AdjacencyMatrix();
+            var graph = new AdjacencyMatrix(true);
 
             graph.AddVertex("a")
                 .AddEdge("b")
@@ -49,15 +48,16 @@ namespace Core.Tests
             edges[0].Next.Weight.Should().Be(1);
             edges[0].Next.Next.Should().BeNull();
 
-            graph.Edges.Count.Should().Be(2);
             graph.Vertexes.Count.Should().Be(4);
-            graph.GetVertexes().Count().Should().Be(4);
+            graph.Vertexes["a"].GetEdges().Count.Should().Be(2);
+            graph.Vertexes["d"].GetEdges().Count.Should().Be(0);
+            graph.GetVertexes().Count.Should().Be(4);
         }
 
         [Fact]
         public void AdjacencyMatrix_FromString_DataConsistent()
         {
-            var graph = new AdjacencyMatrix("a-b-c-g,c-d-e-f,f-g");
+            var graph = new AdjacencyMatrix("a-b-c-g,c-d-e-f,f-g", true);
 
             var vertex = graph.GetVertex("a");
             vertex.Name.Should().Be("a");
@@ -88,11 +88,11 @@ namespace Core.Tests
             edges[0].Vertex2.Name.Should().Be("g");
             edges[0].Next.Should().BeNull();
 
-            graph.Edges.Count.Should().Be(7);
+            //todo check edges
             graph.Vertexes.Count.Should().Be(7);
             graph.GetVertexes().Count().Should().Be(7);
         }
 
-        //todo add tests for fluent api with directions + for string structure with directions + tests for directed
+        //todo add tests for fluent api with directions + for string structure with weights + tests for directed
     }
 }

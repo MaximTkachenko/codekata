@@ -1,31 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Core.Interfaces;
 
 namespace Core
 {
-    //todo need to mirror edges for not directed graph
     internal sealed class AdjacencyMatrix : IAdjacencyMatrix
     {
         internal readonly Dictionary<string, Vertex> Vertexes;
-        internal readonly List<Edge> Edges;
 
-        public AdjacencyMatrix()
+        public AdjacencyMatrix(bool isDirected)
         {
+            IsDirected = isDirected;
             Vertexes = new Dictionary<string, Vertex>();
-            Edges = new List<Edge>();
         }
+
+        public bool IsDirected { get; }
 
         /// <summary>
         /// Should be in format like
         /// a-b-c,b-d-f,f-c
+        /// or with weights
+        /// a-[1]b-[2]c,b-[4]d-[5]f,f-[3]c
         /// </summary>
-        public AdjacencyMatrix(string structure) : this()
+        public AdjacencyMatrix(string structure, bool isDirected) : this(isDirected)
         {
             if (string.IsNullOrEmpty(structure))
             {
                 throw new ArgumentException(nameof(structure));
             }
+
+            //todo parse weights
 
             var vertexItems = structure.Split(new []{ ',' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var vi in vertexItems)
@@ -67,12 +72,6 @@ namespace Core
             return vertex;
         }
 
-        public IEnumerable<IVertex> GetVertexes()
-        {
-            foreach (var vertex in Vertexes.Values)
-            {
-                yield return vertex;
-            }
-        }
+        public IReadOnlyList<IVertex> GetVertexes() => Vertexes.Values.ToList();
     }
 }

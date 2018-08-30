@@ -5,12 +5,10 @@ using Core.Interfaces;
 
 namespace Core
 {
-    //todo moved structure
     internal sealed class Vertex : IVertex
     {
         private readonly AdjacencyMatrix _graph;
-
-        private IEdge _edge;
+        private readonly List<IEdge> _edges = new List<IEdge>();
 
         public Vertex(string name, AdjacencyMatrix graph)
         {
@@ -25,8 +23,18 @@ namespace Core
 
         public string Name { get; }
 
-        public IVertex AddEdge(string endVertexName, short weight = 1)
+        public IVertex AddEdge(string endVertexName, short weight = 0)
         {
+            if (endVertexName == Name)
+            {
+                return this;
+            }
+
+            if (_edges.Any(e => e.Vertex2.Name == endVertexName && e.Weight == weight))
+            {
+                return this;
+            }
+
             if (!_graph.Vertexes.TryGetValue(endVertexName, out var endVertex))
             {
                 endVertex = new Vertex(endVertexName, _graph);
@@ -34,34 +42,16 @@ namespace Core
             }
 
             var edge = new Edge(this, endVertex, weight);
-            _graph.Edges.Add(edge);
-            if (_edge == null)
+            _edges.Add(edge);
+
+            if (!_graph.IsDirected)
             {
-                _edge = edge;
-            }
-            else
-            {
-                ((Edge)GetEdges().Last()).Next = edge;
+                endVertex.AddEdge(Name, weight);
             }
 
             return this;
         }
 
-        public IEnumerable<IEdge> GetEdges()
-        {
-            if (_edge == null)
-            {
-                yield break;
-            }
-
-            yield return _edge;
-
-            var edge = _edge;
-            while (edge.Next != null)
-            {
-                yield return edge.Next;
-                edge = edge.Next;
-            }
-        }
+        public IReadOnlyList<IEdge> GetEdges() => _edges;
     }
 }

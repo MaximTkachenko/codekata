@@ -2,22 +2,22 @@ using System.Linq;
 using FluentAssertions;
 using Xunit;
 
-namespace Core.Tests
+namespace Core.Tests.AdjacencyList
 {
-    public class AdjacencyMatrixTests
+    public class AdjacencyListTests
     {
         [Fact]
-        public void AdjacencyMatrix_InitDirectedGraph_Empty()
+        public void AdjacencyList_InitDirectedGraph_Empty()
         {
-            var graph = new AdjacencyMatrix(true);
+            var graph = new Core.AdjacencyList.AdjacencyList(true);
 
             graph.Vertexes.Count.Should().Be(0);
         }
 
         [Fact]
-        public void AdjacencyMatrix_AddVertexToDirected_VertexAvailable()
+        public void AdjacencyList_AddVertexToDirected_VertexAvailable()
         {
-            var graph = new AdjacencyMatrix(true);
+            var graph = new Core.AdjacencyList.AdjacencyList(true);
 
             graph.AddVertex("a");
 
@@ -27,9 +27,9 @@ namespace Core.Tests
         }
 
         [Fact]
-        public void AdjacencyMatrix_AddVertexAndEdgesToDirectedGraph_DataConsistent()
+        public void AdjacencyList_AddVertexAndEdgesToDirectedGraph_DataConsistent()
         {
-            var graph = new AdjacencyMatrix(true);
+            var graph = new Core.AdjacencyList.AdjacencyList(true);
 
             graph.AddVertex("a")
                 .AddEdge("b")
@@ -54,9 +54,9 @@ namespace Core.Tests
         }
 
         [Fact]
-        public void AdjacencyMatrix_DirectedGraphFromString_DataConsistent()
+        public void AdjacencyList_DirectedGraphFromString_DataConsistent()
         {
-            var graph = new AdjacencyMatrix("a-b-c-g,c-d-e-f,f-g", true);
+            var graph = new Core.AdjacencyList.AdjacencyList("a-b-c-g,c-d-e-f,f-g", true);
 
             graph.Vertexes.Count.Should().Be(7);
             graph.GetVertexes().Count().Should().Be(7);
@@ -85,9 +85,9 @@ namespace Core.Tests
         }
 
         [Fact]
-        public void AdjacencyMatrix_DirectedGraphFromStringWithWeights_DataConsistent()
+        public void AdjacencyList_DirectedGraphFromStringWithWeights_DataConsistent()
         {
-            var graph = new AdjacencyMatrix("a-[2]b-[3]c,c-[4]d-[55]e", true);
+            var graph = new Core.AdjacencyList.AdjacencyList("a-[2]b-[3]c,c-[4]d-[55]e", true);
 
             graph.Vertexes.Count.Should().Be(5);
             graph.GetVertexes().Count.Should().Be(5);

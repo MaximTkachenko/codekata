@@ -1,6 +1,6 @@
-﻿using Core.Interfaces;
+﻿using Core.AdjacencyList.Interfaces;
 
-namespace Core
+namespace Core.AdjacencyList
 {
     internal sealed class Edge : IEdge
     {

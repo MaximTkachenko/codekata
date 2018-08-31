@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Core.Interfaces;
+using Core.AdjacencyList.Interfaces;
 
-namespace Core
+namespace Core.AdjacencyList
 {
-    internal sealed class AdjacencyMatrix : IAdjacencyMatrix
+    internal sealed class AdjacencyList : IAdjacencyList
     {
         private static readonly Regex WeightRegex = new Regex(@"^\[([0-9]{1,3})\]", RegexOptions.Compiled);
 
         internal readonly Dictionary<string, Vertex> Vertexes;
 
-        public AdjacencyMatrix(bool isDirected)
+        public AdjacencyList(bool isDirected)
         {
             IsDirected = isDirected;
             Vertexes = new Dictionary<string, Vertex>();
@@ -20,13 +20,15 @@ namespace Core
 
         public bool IsDirected { get; }
 
+        public int VertexCount { get; private set; }
+
         /// <summary>
         /// Should be in format like
         /// a-b-c,b-d-f,f-c
         /// or with weights
         /// a-[1]b-[2]c,b-[4]d-[5]f,f-[3]c
         /// </summary>
-        public AdjacencyMatrix(string structure, bool isDirected) : this(isDirected)
+        public AdjacencyList(string structure, bool isDirected) : this(isDirected)
         {
             if (string.IsNullOrEmpty(structure))
             {
@@ -63,6 +65,7 @@ namespace Core
 
             vertex = new Vertex(name, this);
             Vertexes.Add(name, vertex);
+            VertexCount++;
             return vertex;
         }
 

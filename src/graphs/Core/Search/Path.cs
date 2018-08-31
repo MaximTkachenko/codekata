@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Search.Interfaces;
 
-namespace Core
+namespace Core.Search
 {
-    public sealed class Path
+    internal sealed class Path : IPath
     {
         private readonly Dictionary<string, string> _path = new Dictionary<string, string>();
         private readonly string _start;
@@ -18,6 +19,8 @@ namespace Core
         {
             _path[to] = from;
         }
+
+        public string GetPathString(string to) => string.Join("", GetPath(to));
 
         public IEnumerable<string> GetPath(string to)
         {

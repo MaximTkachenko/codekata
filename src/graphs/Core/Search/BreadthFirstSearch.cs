@@ -1,32 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Core;
-using Core.Interfaces;
+using Core.AdjacencyList.Interfaces;
+using Core.Search.Interfaces;
 
-namespace BreadthFirstSearch
+namespace Core.Search
 {
-    public sealed class Search : ISearch
+    public sealed class BreadthFirstSearch : ISearch
     {
-        private readonly IAdjacencyMatrix _graph;
+        private readonly IAdjacencyList _graph;
         private readonly HashSet<string> _visited = new HashSet<string>();
         private Path _path;
 
-        public Search(IAdjacencyMatrix graph)
+        public BreadthFirstSearch(IAdjacencyList graph)
         {
             _graph = graph;
         }
 
-        public Path BuildPath(string from)
+        public IPath BuildPath(string from)
         {
             _path = new Path(from);
             var start = _graph.GetVertex(from);
-            BfsSeacrh(start);
 
-            return _path;
-        }
-
-        private void BfsSeacrh(IVertex start)
-        {
             var queue = new Queue<IVertex>();
             queue.Enqueue(start);
             while (queue.Count > 0)
@@ -48,6 +42,8 @@ namespace BreadthFirstSearch
                     }
                 }
             }
+
+            return _path;
         }
     }
 }

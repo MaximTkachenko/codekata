@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
-using Core;
-using Core.Interfaces;
+using Core.AdjacencyList.Interfaces;
+using Core.Search.Interfaces;
 
-namespace DepthFirstSearch
+namespace Core.Search
 {
-    public sealed class Search : ISearch
+    public sealed class DepthFirstSearch : ISearch
     {
-        private readonly IAdjacencyMatrix _graph;
+        private readonly IAdjacencyList _graph;
         private readonly HashSet<string> _visited = new HashSet<string>();
         private Path _path;
 
-        public Search(IAdjacencyMatrix graph)
+        public DepthFirstSearch(IAdjacencyList graph)
         {
             _graph = graph;
         }
 
-        public Path BuildPath(string from)
+        public IPath BuildPath(string from)
         {
             _path = new Path(from);
             var start = _graph.GetVertex(from);

@@ -1,7 +1,8 @@
-﻿using FluentAssertions;
+﻿using Core.Search;
+using FluentAssertions;
 using Xunit;
 
-namespace Core.Tests
+namespace Core.Tests.AdjacencyList
 {
     public class PathTests
     {

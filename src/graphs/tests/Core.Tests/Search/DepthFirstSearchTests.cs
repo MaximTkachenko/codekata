@@ -1,15 +1,15 @@
-using Core;
+using Core.AdjacencyList;
 using FluentAssertions;
 using Xunit;
 
-namespace DepthFirstSearch.Tests
+namespace Core.Tests.Search
 {
-    public class SearchTests
+    public class DepthFirstSearchTests
     {
         [Fact]
         public void Find_ValidInput_ShouldFindPath()
         {
-            var graph = AdjacencyMatrixFactory.CreateDirected();
+            var graph = AdjacencyListFactory.CreateDirected();
             graph.AddVertex("a")
                 .AddEdge("b")
                 .AddEdge("c")
@@ -21,8 +21,8 @@ namespace DepthFirstSearch.Tests
             graph.AddVertex("f")
                 .AddEdge("g");
 
-            var search = new Search(graph);
-            var result = string.Join("", search.BuildPath("a").GetPath("e"));
+            var search = new Core.Search.DepthFirstSearch(graph);
+            var result = search.BuildPath("a").GetPathString("e");
 
             (result == "ace" || result == "agfce").Should().BeTrue();
         }
@@ -30,7 +30,7 @@ namespace DepthFirstSearch.Tests
         [Fact]
         public void Find_FromVertexDisonnectedFromToVertex_EmptyPath()
         {
-            var graph = AdjacencyMatrixFactory.CreateDirected();
+            var graph = AdjacencyListFactory.CreateDirected();
             graph.AddVertex("a")
                 .AddEdge("b")
                 .AddEdge("c")
@@ -47,8 +47,8 @@ namespace DepthFirstSearch.Tests
             graph.AddVertex("n")
                 .AddEdge("o");
 
-            var search = new Search(graph);
-            var result = string.Join("", search.BuildPath("a").GetPath("n"));
+            var search = new Core.Search.DepthFirstSearch(graph);
+            var result = search.BuildPath("a").GetPathString("n");
 
             result.Should().Be("");
         }

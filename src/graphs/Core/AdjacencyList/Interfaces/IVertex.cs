@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Core.Interfaces
+namespace Core.AdjacencyList.Interfaces
 {
     public interface IVertex
     {

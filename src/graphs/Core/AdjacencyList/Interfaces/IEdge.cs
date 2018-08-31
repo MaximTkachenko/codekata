@@ -1,4 +1,4 @@
-﻿namespace Core.Interfaces
+﻿namespace Core.AdjacencyList.Interfaces
 {
     public interface IEdge
     {

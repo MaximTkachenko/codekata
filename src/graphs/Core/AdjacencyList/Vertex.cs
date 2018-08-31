@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.Interfaces;
+using Core.AdjacencyList.Interfaces;
 
-namespace Core
+namespace Core.AdjacencyList
 {
     internal sealed class Vertex : IVertex
     {
-        private readonly AdjacencyMatrix _graph;
+        private readonly AdjacencyList _graph;
         private readonly List<IEdge> _edges = new List<IEdge>();
 
-        public Vertex(string name, AdjacencyMatrix graph)
+        public Vertex(string name, AdjacencyList graph)
         {
             if (string.IsNullOrEmpty(name))
             {

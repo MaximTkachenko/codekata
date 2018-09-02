@@ -6,10 +6,10 @@ Inspired by http://codekata.com/
 
 - [ ] linked list
 - [ ] binary trees
-- [ ] graphs
-  - [x] depth-first search 
-  - [x] breadth-first search 
-  - [ ] Dijkstra's algorithm
+- [ ] [graphs](https://github.com/MaximTkachenko/codekata/tree/master/src/graphs)
+  - [x] [depth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DepthFirstSearch.cs)
+  - [x] [breadth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/BreadthFirstSearch.cs)
+  - [x] [Dijkstra's algorithm](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DijkstraAlgorithm.cs)
 - [ ] stack
 - [ ] queue
 - [ ] vectorr / list of arrays

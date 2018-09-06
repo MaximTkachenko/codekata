@@ -11,7 +11,7 @@ Inspired by http://codekata.com/
   - [ ] hash tables
   - [ ] heap
   - [ ] bloom Filters
-- [ ] linked list
+  - [ ] linked list
 - [ ] tree
   - [ ] binary tree
   - [ ] binary search tree
@@ -20,10 +20,10 @@ Inspired by http://codekata.com/
   - [x] [depth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DepthFirstSearch.cs)
   - [x] [breadth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/BreadthFirstSearch.cs)
   - [x] [Dijkstra's algorithm](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DijkstraAlgorithm.cs)
-
+- [ ] sorting
+  - [ ] merge sort
+  - [ ] quick sort
 - [ ] binary search
-- [ ] merge sort
-- [ ] quick sort
 - [ ] bit manipulations
 - [ ] recursion
 - [ ] O(n)

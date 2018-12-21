@@ -9,6 +9,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "graph\Core\Core.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Tests", "graph\Core.Tests\Core.Tests.csproj", "{5A43B798-A1C4-43EB-9519-3588E3FAF7E6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "heap", "heap", "{4C4EA70E-4591-41F6-BFC3-2BA1BCD222D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tree", "tree", "{5C1F89A3-143C-49A6-8385-4E42A8AE349F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sorting", "sorting", "{DAB5D029-868C-4CFB-AA39-253D8B0D31DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_others", "_others", "{C4534AB9-9FB1-4377-8A83-3D1BE5DDEE84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

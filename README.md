@@ -4,25 +4,30 @@ Inspired by http://codekata.com/
 
 ## algorithms-and-data-structures
 
-- [ ] linked list
-- [ ] binary trees
-- [ ] graphs
-  - [x] depth-first search 
-  - [x] breadth-first search 
-  - [ ] Dijkstra's algorithm
-- [ ] stack
-- [ ] queue
-- [ ] vectorr / list of arrays
-- [ ] hash tables
+- [ ] structures
+  - [ ] stack
+  - [ ] queue
+  - [ ] vectorr / list of arrays
+  - [ ] hash tables
+  - [ ] heap
+  - [ ] bloom Filters
+  - [ ] linked list
+- [ ] tree
+  - [ ] binary tree
+  - [ ] binary search tree
+  - [ ] red black tree
+- [ ] [graphs](https://github.com/MaximTkachenko/codekata/tree/master/src/graphs)
+  - [x] [depth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DepthFirstSearch.cs)
+  - [x] [breadth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/BreadthFirstSearch.cs)
+  - [x] [Dijkstra's algorithm](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DijkstraAlgorithm.cs)
+- [ ] sorting
+  - [ ] merge sort
+  - [ ] quick sort
 - [ ] binary search
-- [ ] merge sort
-- [ ] quick sort
 - [ ] bit manipulations
 - [ ] recursion
-- [ ] heap
 - [ ] O(n)
 ---------------------------------------------
 - [ ] greedy algorithms
 - [ ] NP-Complete problem
 - [ ] randomized algorithms
-- [ ] bloom Filters

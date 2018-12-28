@@ -31,3 +31,4 @@ Inspired by http://codekata.com/
 - [ ] greedy algorithms
 - [ ] NP-Complete problem
 - [ ] randomized algorithms
+- [ ] eratosthenes sieve

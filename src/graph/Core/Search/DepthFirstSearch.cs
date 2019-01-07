@@ -19,12 +19,12 @@ namespace Core.Search
         {
             _path = new Path(from);
             var start = _graph.GetVertex(from);
-            DfsSeacrh(start);
+            DfsSearch(start);
 
             return _path;
         }
 
-        private void DfsSeacrh(IVertex start)
+        private void DfsSearch(IVertex start)
         {
             _visited.Add(start.Name);
             foreach (var edge in start.GetEdges())
@@ -32,7 +32,7 @@ namespace Core.Search
                 if (!_visited.Contains(edge.Vertex2.Name))
                 {
                     _path.Set(edge.Vertex2.Name, start.Name);
-                    DfsSeacrh(edge.Vertex2);
+                    DfsSearch(edge.Vertex2);
                 }
             }
         }

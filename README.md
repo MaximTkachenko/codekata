@@ -16,7 +16,7 @@ Inspired by http://codekata.com/
   - [ ] binary tree (search, insert etc.)
   - [ ] binary search tree
   - [ ] red black tree
-- [ ] [graphs](https://github.com/MaximTkachenko/codekata/tree/master/src/graphs)
+- [ ] [graphs](https://github.com/MaximTkachenko/codekata/tree/master/src/graph)
   - [x] [depth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DepthFirstSearch.cs)
   - [x] [breadth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/BreadthFirstSearch.cs)
   - [x] [Dijkstra's algorithm](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DijkstraAlgorithm.cs)

@@ -1,6 +1,6 @@
 # codekata
 
-Inspired by http://codekata.com/
+Inspired by http://codekata.com and "Cracking the coding interview" book
 
 ## algorithms-and-data-structures
 
@@ -17,9 +17,9 @@ Inspired by http://codekata.com/
   - [ ] binary search tree
   - [ ] red black tree
 - [ ] [graphs](https://github.com/MaximTkachenko/codekata/tree/master/src/graph)
-  - [x] [depth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DepthFirstSearch.cs)
-  - [x] [breadth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/BreadthFirstSearch.cs)
-  - [x] [Dijkstra's algorithm](https://github.com/MaximTkachenko/codekata/blob/master/src/graphs/Core/Search/DijkstraAlgorithm.cs)
+  - [x] [depth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graph/Core/Search/DepthFirstSearch.cs)
+  - [x] [breadth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graph/Core/Search/BreadthFirstSearch.cs)
+  - [x] [Dijkstra's algorithm](https://github.com/MaximTkachenko/codekata/blob/master/src/graph/Core/Search/DijkstraAlgorithm.cs)
 - [ ] sorting
   - [ ] merge sort
   - [ ] quick sort

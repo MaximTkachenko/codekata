@@ -7,13 +7,13 @@ Inspired by http://codekata.com/
 - [ ] structures
   - [ ] stack
   - [ ] queue
-  - [ ] vectorr / list of arrays
+  - [ ] vector / list of arrays
   - [ ] hash tables
   - [ ] heap
   - [ ] bloom Filters
   - [ ] linked list
 - [ ] tree
-  - [ ] binary tree
+  - [ ] binary tree (search, insert etc.)
   - [ ] binary search tree
   - [ ] red black tree
 - [ ] [graphs](https://github.com/MaximTkachenko/codekata/tree/master/src/graphs)
@@ -27,6 +27,7 @@ Inspired by http://codekata.com/
 - [ ] bit manipulations
 - [ ] recursion
 - [ ] O(n)
+- [ ] heap
 ---------------------------------------------
 - [ ] greedy algorithms
 - [ ] NP-Complete problem

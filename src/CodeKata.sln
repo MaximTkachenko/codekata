@@ -35,13 +35,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sketches", "sketches", "{44
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProbabilisticStructures", "sketches\ProbabilisticStructures\ProbabilisticStructures.csproj", "{31EE9EE1-2296-4829-AD99-DB3AEF5B1762}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingAlgorithms", "sorting\SortingAlgorithms\SortingAlgorithms.csproj", "{2F8595D4-A427-479E-A0EB-F42FFDAC5C90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgorithms", "sorting\SortingAlgorithms\SortingAlgorithms.csproj", "{2F8595D4-A427-479E-A0EB-F42FFDAC5C90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingAlgorithms.Tests", "sorting\SortingAlgorithms.Tests\SortingAlgorithms.Tests.csproj", "{40656096-3A0D-4DB0-80FE-C7DF0E9F59AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgorithms.Tests", "sorting\SortingAlgorithms.Tests\SortingAlgorithms.Tests.csproj", "{40656096-3A0D-4DB0-80FE-C7DF0E9F59AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProbabilisticStructures.Tests", "sketches\ProbabilisticStructures.Tests\ProbabilisticStructures.Tests.csproj", "{01C2B3A6-B3E3-447B-8DE3-D9ED8B521BC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProbabilisticStructures.Tests", "sketches\ProbabilisticStructures.Tests\ProbabilisticStructures.Tests.csproj", "{01C2B3A6-B3E3-447B-8DE3-D9ED8B521BC9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "statistics", "statistics", "{6ED6CF5A-CF99-4A08-9399-437FB699EB26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "sketches\Collections\Collections.csproj", "{D1FB1008-DEC3-4DF8-8D3F-B54E1FD5E73D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,10 @@ Global
 		{01C2B3A6-B3E3-447B-8DE3-D9ED8B521BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01C2B3A6-B3E3-447B-8DE3-D9ED8B521BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01C2B3A6-B3E3-447B-8DE3-D9ED8B521BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1FB1008-DEC3-4DF8-8D3F-B54E1FD5E73D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1FB1008-DEC3-4DF8-8D3F-B54E1FD5E73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1FB1008-DEC3-4DF8-8D3F-B54E1FD5E73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1FB1008-DEC3-4DF8-8D3F-B54E1FD5E73D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,6 +120,7 @@ Global
 		{2F8595D4-A427-479E-A0EB-F42FFDAC5C90} = {DAB5D029-868C-4CFB-AA39-253D8B0D31DD}
 		{40656096-3A0D-4DB0-80FE-C7DF0E9F59AF} = {DAB5D029-868C-4CFB-AA39-253D8B0D31DD}
 		{01C2B3A6-B3E3-447B-8DE3-D9ED8B521BC9} = {44E6323E-6EE7-4FD9-A6EC-EE2C9DB8C828}
+		{D1FB1008-DEC3-4DF8-8D3F-B54E1FD5E73D} = {44E6323E-6EE7-4FD9-A6EC-EE2C9DB8C828}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {613F58B2-7686-4A54-87D8-8122195D9679}

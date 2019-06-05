@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Collections
 {
-    class Queue
+    public class Queue
     {
     }
 }

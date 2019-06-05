@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Collections
 {
-    class Stack
+    public class Stack
     {
     }
 }

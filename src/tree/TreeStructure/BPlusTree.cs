@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TreeStructure
 {
-    class BPlusTree
+    public class BPlusTree
     {
     }
 }

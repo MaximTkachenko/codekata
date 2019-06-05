@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HeapStructure
+namespace TreeStructure
 {
-    class MaxHeap
+    public class Trie
     {
     }
 }

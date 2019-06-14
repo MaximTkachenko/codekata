@@ -2,7 +2,7 @@
 using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs.Search.Interfaces;
 using Mtk.AlgorithmsAndDataStructures.DataStructures.Graphs.AdjacencyList.Interfaces;
 
-namespace Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs.Search
+namespace Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs
 {
     public sealed class DepthFirstSearch : ISearch
     {

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Mtk.AlgorithmsAndDataStructures.Algorithms;
@@ -9,20 +8,42 @@ namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms
     public class SortingTests
     {
         [Theory]
-        [MemberData(nameof(Sorts))]
-        public void Basic(Action<int[]> sort)
+        [MemberData(nameof(Data))]
+        public void BubbleSort_Basic(int[] input, int[] output)
         {
-            var input = new[] { 8, 5, 3, 0, 7 };
-            sort.Invoke(input);
-            input.Should().BeEquivalentTo(new[] { 0, 3, 5, 7, 8 });
+            input.BubbleSort();
+            input.Should().BeEquivalentTo(output, opt => opt.WithStrictOrdering());
         }
 
-        public static IEnumerable<object[]> Sorts =>
-            new List<Action<int[]>[]>
+        [Theory(Skip = "not finished")]
+        [MemberData(nameof(Data))]
+        public void HeapSort_Basic(int[] input, int[] output)
+        {
+            input.HeapSort();
+            input.Should().BeEquivalentTo(output, opt => opt.WithStrictOrdering());
+        }
+
+        [Theory(Skip = "not finished")]
+        [MemberData(nameof(Data))]
+        public void QuickSort_Basic(int[] input, int[] output)
+        {
+            input.QuickSort();
+            input.Should().BeEquivalentTo(output, opt => opt.WithStrictOrdering());
+        }
+
+        [Theory]
+        [MemberData(nameof(Data))]
+        public void MergeSort_Basic(int[] input, int[] output)
+        {
+            input.MergeSort();
+            input.Should().BeEquivalentTo(output, opt => opt.WithStrictOrdering());
+        }
+
+        public static IEnumerable<object[]> Data => new List<object[]>
             {
-                new Action<int[]>[] { arr => arr.BubbleSort() },
-                new Action<int[]>[] { arr => arr.QuickSort() },
-                new Action<int[]>[] { arr => arr.MergeSort() }
+                new object[] { new[] { 0, 3, 5, 7, 8 }, new[] { 0, 3, 5, 7, 8 } },
+                new object[] { new[] { 8, 5, 3, 0, 7 }, new[] { 0, 3, 5, 7, 8 } },
+                new object[] { new[] { 0, 3, 7, 5, 8 }, new[] { 0, 3, 5, 7, 8 } }
             };
     }
 }

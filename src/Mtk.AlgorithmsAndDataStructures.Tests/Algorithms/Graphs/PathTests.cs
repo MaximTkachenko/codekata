@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs.Search;
+using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs;
 using Xunit;
 
-namespace Mtk.AlgorithmsAndDataStructures.Tests.DataStructures.Graphs.AdjacencyList
+namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms.Graphs
 {
     public class PathTests
     {
@@ -20,7 +20,7 @@ namespace Mtk.AlgorithmsAndDataStructures.Tests.DataStructures.Graphs.AdjacencyL
         }
 
         [Fact]
-        public void GetPath_ToNotConnectedToFrom_PathNotFpund()
+        public void GetPath_ToNotConnectedToFrom_PathNotFound()
         {
             var path = new Path("a");
             path.Set("b", "c");

@@ -1,6 +1,6 @@
 ﻿namespace Mtk.AlgorithmsAndDataStructures.DataStructures
 {
-    public class Stack
+    public class StackOnLinkedList
     {
     }
 }

@@ -1,9 +1,10 @@
 using FluentAssertions;
+using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs;
 using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs.Search;
 using Mtk.AlgorithmsAndDataStructures.DataStructures.Graphs.AdjacencyList;
 using Xunit;
 
-namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms.Graphs.Search
+namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms.Graphs
 {
     public class DijkstraAlgorithmTests
     {

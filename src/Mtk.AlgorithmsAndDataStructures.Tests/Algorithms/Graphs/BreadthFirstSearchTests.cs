@@ -1,11 +1,12 @@
 using FluentAssertions;
+using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs;
 using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs.Search;
 using Mtk.AlgorithmsAndDataStructures.DataStructures.Graphs.AdjacencyList;
 using Xunit;
 
-namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms.Graphs.Search
+namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms.Graphs
 {
-    public class DepthFirstSearchTests
+    public class BreadthFirstSearchTests
     {
         [Fact]
         public void Find_ValidInput_ShouldFindPath()
@@ -22,7 +23,7 @@ namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms.Graphs.Search
             graph.AddVertex("f")
                 .AddEdge("g");
 
-            var search = new DepthFirstSearch(graph);
+            var search = new BreadthFirstSearch(graph);
             var result = search.BuildPath("a").GetPathString("e");
 
             (result == "ace" || result == "agfce").Should().BeTrue();
@@ -48,7 +49,7 @@ namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms.Graphs.Search
             graph.AddVertex("n")
                 .AddEdge("o");
 
-            var search = new DepthFirstSearch(graph);
+            var search = new BreadthFirstSearch(graph);
             var result = search.BuildPath("a").GetPathString("n");
 
             result.Should().Be("");

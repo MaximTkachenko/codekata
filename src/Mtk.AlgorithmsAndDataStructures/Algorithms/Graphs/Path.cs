@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs.Search.Interfaces;
 
-namespace Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs.Search
+namespace Mtk.AlgorithmsAndDataStructures.Algorithms.Graphs
 {
     internal sealed class Path : IPath
     {

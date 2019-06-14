@@ -4,9 +4,9 @@ namespace Mtk.AlgorithmsAndDataStructures.Algorithms
 {
     public static class BubbleSortExt
     {
-        public static void BubbleSort<T>(this T[] input)
+        public static void BubbleSort<T>(this T[] input, IComparer<T> comparison = null)
         {
-            var comparer = Comparer<T>.Default;
+            var comparer = comparison ?? Comparer<T>.Default;
 
             bool isSorted = false;
             var lastUnsorted = input.Length - 1;

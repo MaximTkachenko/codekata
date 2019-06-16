@@ -21,8 +21,12 @@ Inspired by http://codekata.com and "Cracking the coding interview" book
   - [x] [breadth-first search](https://github.com/MaximTkachenko/codekata/blob/master/src/graph/Core/Search/BreadthFirstSearch.cs)
   - [x] [Dijkstra's algorithm](https://github.com/MaximTkachenko/codekata/blob/master/src/graph/Core/Search/DijkstraAlgorithm.cs)
 - [ ] sorting
+  - [ ] bubble sort
+  - [ ] heap sort
+  - [ ] insertion sort
   - [ ] merge sort
   - [ ] quick sort
+  - [ ] 
 - [ ] binary search
 - [ ] bit manipulations
 - [ ] recursion
@@ -36,3 +40,5 @@ Inspired by http://codekata.com and "Cracking the coding interview" book
 
 
 https://github.com/abdonkov/DSA
+
+[The Big Scary O Notation](https://medium.com/omarelgabrys-blog/the-big-scary-o-notation-ce9352d827ce)

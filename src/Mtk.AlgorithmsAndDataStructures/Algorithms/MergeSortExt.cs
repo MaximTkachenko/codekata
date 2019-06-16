@@ -8,10 +8,12 @@ namespace Mtk.AlgorithmsAndDataStructures.Algorithms
     {
         public static void MergeSort<T>(this T[] input, IComparer<T> comparison = null)
         {
+            var comparer = comparison ?? Comparer<T>.Default;
+
+            //optimize memory allocation of temporary array
             var temp = ArrayPool<T>.Shared.Rent(input.Length);
             try
             {
-                var comparer = comparison ?? Comparer<T>.Default;
                 MergeSortImpl(input, temp, 0, input.Length - 1, comparer);
             }
             finally
@@ -46,6 +48,7 @@ namespace Mtk.AlgorithmsAndDataStructures.Algorithms
 
             while (index <= rightTo)
             {
+                //left part is finished, copy data from right part
                 if (leftIndex > leftTo)
                 {
                     temp[index] = array[rightIndex];
@@ -54,6 +57,7 @@ namespace Mtk.AlgorithmsAndDataStructures.Algorithms
                     continue;
                 }
 
+                //right part is finished, copy data from left part
                 if (rightIndex > rightTo)
                 {
                     temp[index] = array[leftIndex];
@@ -62,6 +66,8 @@ namespace Mtk.AlgorithmsAndDataStructures.Algorithms
                     continue;
                 }
 
+                //compare current items from left and right parts
+                //copy the small one
                 if (comparer.Compare(array[leftIndex], array[rightIndex]) == 1)
                 {
                     temp[index] = array[rightIndex];
@@ -76,6 +82,7 @@ namespace Mtk.AlgorithmsAndDataStructures.Algorithms
                 index++;
             }
 
+            //put processed items back into source array
             Array.Copy(temp, leftFrom, array, leftFrom, rightTo - leftFrom + 1);
         }
     }

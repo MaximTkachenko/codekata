@@ -31,21 +31,25 @@ namespace Mtk.AlgorithmsAndDataStructures.Algorithms
 
             while (from < to)
             {
+                //in the left part: find the 1st item greater than pivot
                 while (comparer.Compare(arr[from], pivot) == -1 && from < to)
                 {
                     from++;
                 }
 
+                //in the right part: find the 1st item lower than pivot
                 while (comparer.Compare(arr[to], pivot) == 1 && from < to)
                 {
                     to--;
                 }
 
+                //swap
                 var temp = arr[from];
                 arr[from] = arr[to];
                 arr[to] = temp;
             }
 
+            //swap pivot and final item if pivot is lower than final item
             if (comparer.Compare(arr[from], pivot) == 1)
             {
                 var temp = arr[from];

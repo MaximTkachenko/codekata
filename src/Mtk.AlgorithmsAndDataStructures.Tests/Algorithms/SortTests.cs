@@ -15,7 +15,7 @@ namespace Mtk.AlgorithmsAndDataStructures.Tests.Algorithms
             input.Should().BeEquivalentTo(output, opt => opt.WithStrictOrdering());
         }
 
-        [Theory(Skip = "not finished")]
+        [Theory]
         [MemberData(nameof(Data))]
         public void InsertionSort_Basic(int[] input, int[] output)
         {

@@ -40,5 +40,6 @@ Inspired by http://codekata.com and "Cracking the coding interview" book
 
 
 https://github.com/abdonkov/DSA
+http://highscalability.com/blog/2015/10/12/making-the-case-for-building-scalable-stateful-services-in-t.html?lastPage=true&postSubmitted=true
 
 [The Big Scary O Notation](https://medium.com/omarelgabrys-blog/the-big-scary-o-notation-ce9352d827ce)

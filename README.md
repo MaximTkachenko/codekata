@@ -26,7 +26,7 @@ Inspired by http://codekata.com and "Cracking the coding interview" book
   - [ ] insertion sort
   - [ ] merge sort
   - [ ] quick sort
-  - [ ] 
+- [ ] conflict-free replicated data types 
 - [ ] binary search
 - [ ] bit manipulations
 - [ ] recursion
